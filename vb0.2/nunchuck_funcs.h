@@ -1,15 +1,3 @@
-/*
- * Nunchuck functions  -- Talk to a Wii Nunchuck
- *
- * This library is from the Bionic Arduino course : 
- *                          http://todbot.com/blog/bionicarduino/
- *
- * 2007-11 Tod E. Kurt, http://todbot.com/blog/
- *
- * The Wii Nunchuck reading code originally from Windmeadow Labs
- *   http://www.windmeadow.com/node/42
- */
-
 #if (ARDUINO >= 100)
 #include <Arduino.h>
 #else
