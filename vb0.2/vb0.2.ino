@@ -2,7 +2,8 @@
  *** protoOS * vb0.2 ******************* by NeoYandrak ***
  *********************************************************
  *** Esta versión empiea a mirar el cambio de menús    ***
- *** de expresiones del protogen                       ***
+ *** de expresiones del protogen y la selección de     ***
+ *** expresión dentro del propio menú.                 ***
  ********************************************************/
 
 // Include libraries
@@ -16,12 +17,13 @@ int homeIndicator = 12;
 bool isMenuOpened; //Asks if the emotions menu is opened
 
 int cursor = 1; //Cursor para expresiones
+String current = "Idle"; //Expresión actual
 
 //Joystick panning (no values still)
-const int joyx_min = 100;
-const int joyx_max = 150;
-const int joyy_min = 110;
-const int joyy_max = 150;
+const int joyx_min = 80;
+const int joyx_max = 170;
+const int joyy_min = 80;
+const int joyy_max = 170;
 
 bool debug = false;
 
@@ -29,22 +31,36 @@ void setup()
 {
   // Iniciar chimeraOS
     Serial.begin(19200);
-    Serial.print("Iniciando ch1mera OS... ");
+    Serial.print("Iniciando ch1mera OS");
 
     //Nunchuck
+    delay(1000);
+    Serial.print(".");
     nunchuck_setpowerpins();
     nunchuck_init(); // send the initilization handshake
 
     //Outputs and Inputs
+    delay(1000);
+    Serial.print(".");
     pinMode(menuIndicator, OUTPUT);
     pinMode(homeIndicator, OUTPUT);
 
+    //Expresión
+    current = "Idle"; //Idle
+
     //GUI
+    delay(500);
+    Serial.print(". ");
     isMenuOpened = false;
     debug = false;
     digitalWrite(menuIndicator, LOW);
     digitalWrite(homeIndicator, HIGH);
+    delay(1500);
     Serial.println("- completado!");
+    Serial.println("-------------------------");
+    Serial.print  ("    ch1meraOS   - ");
+    Serial.println(current);
+    Serial.println("  - Eyes not found (404) ");
 }
 
 void loop() 
@@ -76,7 +92,7 @@ void loop()
     if (cbut == 1) {
     
       if (isMenuOpened == false) {
-        Serial.println ("Menu opened");
+        //Serial.println ("Menu opened");
         digitalWrite(menuIndicator, HIGH);
         digitalWrite(homeIndicator, LOW);
         isMenuOpened = true;
@@ -84,18 +100,23 @@ void loop()
         menu(cursor);
 
      } else if (isMenuOpened == true) {
-       Serial.println ("Menu closed");
+       //Serial.println ("Menu closed");
        digitalWrite(menuIndicator, LOW);
        digitalWrite(homeIndicator, HIGH);
        isMenuOpened = false;
+       
+       Serial.println("-------------------------");
+       Serial.print  ("    ch1meraOS   - ");
+       Serial.println(current);
+       Serial.println("  - Eyes not found (404) ");
       }
     }
 
     if (isMenuOpened == true){
       //**Cursor initilization**
         //joy x
-        if (nunchuck_joyx <= joyx_min) {
-          Serial.println("Caso 1");
+        if (accx <= joyx_min) {
+          //Serial.println("Caso 1");
           cursor = cursor - 2;
           if (cursor <= 0) {
             cursor = 1;
@@ -103,36 +124,39 @@ void loop()
 
           menu(cursor);
 
-        } else if (nunchuck_joyx >= joyx_max) {
-          Serial.println("Caso 2");
+        } else if (accx >= joyx_max) {
+          //Serial.println("Caso 2");
           cursor = cursor + 2;
           if (cursor >= 5) {
-            cursor = 5;
+            cursor = 4;
           }
 
           menu(cursor);
 
         }
         //joy y
-        if (nunchuck_joyy <= joyy_min) {
-          Serial.println("Caso 3");
-          cursor = cursor - 1;
+        if (accy <= joyy_min) {
+          //Serial.println("Caso 3");
+          cursor = cursor + 1;
           if (cursor <= 0) {
             cursor = 1;
           }
 
           menu(cursor);
 
-        } else if (nunchuck_joyy >= joyy_max) {
-          Serial.println("Caso 4");
-          cursor = cursor + 1;
+        } else if (accy >= joyy_max) {
+          //Serial.println("Caso 4");
+          cursor = cursor - 1;
           if (cursor >= 5) {
-            cursor = 5;
+            cursor = 4;
           }
 
           menu(cursor);
 
         }
+      if (zbut == 1){
+        select(cursor);
+      }
     }
     
     //Debug mode
@@ -156,24 +180,65 @@ void loop()
 void menu (int c){
   switch (c){
     case 1:
-      Serial.println("---");
-      Serial.println("> Idle           - Sad");
-      Serial.println("- Happy          - Angry");
+      Serial.println("-------------------------");
+      Serial.println("  > Idle        - Sad    ");
+      Serial.println("  - Happy       - Angry  ");
       break;
     case 2:
-      Serial.println("---");
-      Serial.println("- Idle           > Sad");
-      Serial.println("- Happy          - Angry");
+      Serial.println("-------------------------");
+      Serial.println("  - Idle        - Sad    ");
+      Serial.println("  > Happy       - Angry  ");
       break;
     case 3:
-      Serial.println("---"); 
-      Serial.println("- Idle           - Sad");
-      Serial.println("> Happy          - Angry");
+      Serial.println("-------------------------");
+      Serial.println("  - Idle        > Sad    ");
+      Serial.println("  - Happy       - Angry  ");
       break;
     case 4:
-      Serial.println("---");
-      Serial.println("- Idle           - Sad");
-      Serial.println("- Happy          > Angry");
+      Serial.println("-------------------------");
+      Serial.println("  - Idle        - Sad    ");
+      Serial.println("  - Happy       > Angry  ");
       break;
   }
+}
+
+void select (int c){
+  switch (c){
+    case 1:
+      current = "Idle";
+      Serial.println("-------------------------");
+      Serial.print("         - ");
+      Serial.println(current);
+      Serial.println("      Seleccionado.      ");
+      break;
+    case 2:
+      current = "Happy";
+      Serial.println("-------------------------");
+      Serial.print("         - ");
+      Serial.println(current);
+      Serial.println("      Seleccionado.      ");
+      break;
+    case 3:
+      current = "Sad";
+      Serial.println("-------------------------");
+      Serial.print("          - ");
+      Serial.println(current);
+      Serial.println("      Seleccionado.      ");
+      break;
+    case 4:
+      current = "Angry";
+      Serial.println("-------------------------");
+      Serial.print("         - ");
+      Serial.println(current);
+      Serial.println("      Seleccionado.      ");
+      break;
+  }
+  delay(400);
+  isMenuOpened = false;   
+  digitalWrite(menuIndicator, LOW);
+  digitalWrite(homeIndicator, HIGH);
+  Serial.println("-------------------------");
+  Serial.print  ("    ch1meraOS   - ");
+  Serial.println(current);
+  Serial.println("  - Eyes not found (404) ");
 }
