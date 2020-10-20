@@ -12,7 +12,6 @@
 int loop_cnt=0; //Loop variable
 byte accx,accy,zbut,cbut; //Joycon variables
 int ledPin = 13; //ledPin variable
-
 bool isMenuOpened; //Asks if the emotions menu is opened
 
 void setup()
