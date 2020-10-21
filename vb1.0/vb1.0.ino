@@ -163,43 +163,35 @@ void loop()
       //**Cursor initilization**
         //joy x
         if (accx <= joyx_min) {
-          //Serial.println("Caso 1");
-          cursor = cursor - 2;
-          if (cursor <= 0) {
-            cursor = 1;
-          }
-
-          menu(cursor);
-
+        //Serial.println("Caso 1");
+        cursor = cursor - 2;
+        if (cursor <= 0) {
+        cursor = 1;
+        }
+        menu(cursor);
         } else if (accx >= joyx_max) {
-          //Serial.println("Caso 2");
-          cursor = cursor + 2;
-          if (cursor >= 5) {
-            cursor = 4;
-          }
-
-          menu(cursor);
-
+        //Serial.println("Caso 2");
+        cursor = cursor + 2;
+        if (cursor >= 5) {
+        cursor = 4;
+        }
+        menu(cursor);
         }
         //joy y
         if (accy <= joyy_min) {
-          //Serial.println("Caso 3");
-          cursor = cursor + 1;
-          if (cursor <= 0) {
-            cursor = 1;
-          }
-
-          menu(cursor);
-
+        //Serial.println("Caso 3");
+        cursor = cursor + 1;
+        if (cursor <= 0) {
+        cursor = 1;
+        }
+        menu(cursor);
         } else if (accy >= joyy_max) {
-          //Serial.println("Caso 4");
-          cursor = cursor - 1;
-          if (cursor >= 5) {
-            cursor = 4;
-          }
-
-          menu(cursor);
-
+        //Serial.println("Caso 4");
+        cursor = cursor - 1;
+        if (cursor >= 5) {
+        cursor = 4;
+        }
+        menu(cursor);
         }
       if (zbut == 1){
         select(cursor);
@@ -208,15 +200,15 @@ void loop()
     
     //Debug mode
     if (zbut == 1 ){
-      if (cbut == 1){
-        if (debug == false){
-          debug = true;
-          Serial.println("Debug mode activated");
-        } else if (debug == true){
-          debug = false;
-          Serial.println("Debug mode desactivated");
-        }
-      }
+    if (cbut == 1){
+    if (debug == false){
+    debug = true;
+    Serial.println("Debug mode activated");
+    } else if (debug == true){
+    debug = false;
+    Serial.println("Debug mode desactivated");
+    }
+    }
     }
   }
 
@@ -227,88 +219,88 @@ void loop()
 void menu (int c){
   switch (c){
     case 1:
-      Serial.println("-------------------------");
-      Serial.println("  > Idle        - Sad    ");
-      Serial.println("  - Happy       - Angry  ");
-      lcd.clear();
+    Serial.println("-------------------------");
+    Serial.println("  > Idle        - Sad    ");
+    Serial.println("  - Happy       - Angry  ");
+    lcd.clear();
     lcd.setCursor(1,0); lcd.print("Menu");
     lcd.setCursor(0,1); lcd.print(" > Idle    - Sad    ");
     lcd.setCursor(0,2); lcd.print(" - Happy   - Angry  ");
     lcd.setCursor(15,3); lcd.print(version);
-      break;
+    break;
     case 2:
-      Serial.println("-------------------------");
-      Serial.println("  - Idle        - Sad    ");
-      Serial.println("  > Happy       - Angry  ");
-      lcd.clear();
+    Serial.println("-------------------------");
+    Serial.println("  - Idle        - Sad    ");
+    Serial.println("  > Happy       - Angry  ");
+    lcd.clear();
     lcd.setCursor(1,0); lcd.print("Menu");
     lcd.setCursor(0,1); lcd.print(" - Idle    - Sad    ");
     lcd.setCursor(0,2); lcd.print(" > Happy   - Angry  ");
     lcd.setCursor(15,3); lcd.print(version);
-      break;
+    break;
     case 3:
-      Serial.println("-------------------------");
-      Serial.println("  - Idle        > Sad    ");
-      Serial.println("  - Happy       - Angry  ");
-      lcd.clear();
+    Serial.println("-------------------------");
+    Serial.println("  - Idle        > Sad    ");
+    Serial.println("  - Happy       - Angry  ");
+    lcd.clear();
     lcd.setCursor(1,0); lcd.print("Menu");
     lcd.setCursor(0,1); lcd.print(" - Idle    > Sad    ");
     lcd.setCursor(0,2); lcd.print(" - Happy   - Angry  ");
     lcd.setCursor(15,3); lcd.print(version);
-      break;
+    break;
     case 4:
-      Serial.println("-------------------------");
-      Serial.println("  - Idle        - Sad    ");
-      Serial.println("  - Happy       > Angry  ");
-      lcd.clear();
+    Serial.println("-------------------------");
+    Serial.println("  - Idle        - Sad    ");
+    Serial.println("  - Happy       > Angry  ");
+    lcd.clear();
     lcd.setCursor(1,0); lcd.print("Menu");
     lcd.setCursor(0,1); lcd.print(" - Idle    - Sad    ");
     lcd.setCursor(0,2); lcd.print(" - Happy   > Angry  ");
     lcd.setCursor(15,3); lcd.print(version);
-      break;
+    break;
   }
 }
 
 void select (int c){
-  switch (c){
-    case 1:
-      current = "Idle";
+switch (c){
+case 1:
+current = "Idle";
       Serial.println("-------------------------");
       Serial.print("         - ");
       Serial.println(current);
       Serial.println("      Seleccionado.      ");
-      break;
-    case 2:
-      current = "Happy";
+break;
+case 2:
+current = "Happy";
       Serial.println("-------------------------");
       Serial.print("         - ");
       Serial.println(current);
       Serial.println("      Seleccionado.      ");
-      break;
-    case 3:
-      current = "Sad";
+break;
+case 3:
+current = "Sad";
       Serial.println("-------------------------");
       Serial.print("          - ");
       Serial.println(current);
       Serial.println("      Seleccionado.      ");
-      break;
-    case 4:
+break;
+case 4:
       current = "Angry";
       Serial.println("-------------------------");
       Serial.print("         - ");
       Serial.println(current);
       Serial.println("      Seleccionado.      ");
-      break;
-  }
+break;
+}
   
-  lcd.clear();
-    lcd.setCursor(1,0); lcd.print("** ");
-    lcd.setCursor(0,1); lcd.print("      > "); lcd.print(current);
-    lcd.setCursor(0,2); lcd.print("      selected ");
-    lcd.setCursor(15,3); lcd.print(version);
+lcd.clear();
+lcd.setCursor(1,0); lcd.print("** ");
+lcd.setCursor(0,1); lcd.print("      > "); lcd.print(current);
+lcd.setCursor(0,2); lcd.print("      selected ");
+lcd.setCursor(15,3); lcd.print(version);
 
-  delay(1000);
-  isMenuOpened = false;   
+delay(1000);
+isMenuOpened = false;   
   digitalWrite(menuIndicator, LOW);
   digitalWrite(homeIndicator, HIGH);
   Serial.println("-------------------------");
@@ -316,8 +308,8 @@ void select (int c){
   Serial.println(current);
   Serial.println("  - Eyes not found (404) ");
   lcd.clear();
-    lcd.setCursor(1,0); lcd.print("** ");
-    lcd.setCursor(0,1); lcd.print("Expresion: "); lcd.print(current);
-    lcd.setCursor(0,2); lcd.print("404; Eyes not found");
-    lcd.setCursor(15,3); lcd.print(version);
+  lcd.setCursor(1,0); lcd.print("** ");
+  lcd.setCursor(0,1); lcd.print("Expresion: "); lcd.print(current);
+  lcd.setCursor(0,2); lcd.print("404; Eyes not found");
+  lcd.setCursor(15,3); lcd.print(version);
 }
