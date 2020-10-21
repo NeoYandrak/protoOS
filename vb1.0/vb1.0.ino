@@ -8,6 +8,8 @@
 
 // Include libraries
 #include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
 #include "nunchuck_funcs.h"
 
 int loop_cnt=0; //Loop variable
@@ -18,6 +20,7 @@ bool isMenuOpened; //Asks if the emotions menu is opened
 
 int cursor = 1; //Cursor para expresiones
 String current = "Idle"; //Expresión actual
+String version = "vb1.0";
 
 //Joystick panning (no values still)
 const int joyx_min = 80;
@@ -27,8 +30,18 @@ const int joyy_max = 170;
 
 bool debug = false;
 
+LiquidCrystal_I2C lcd(0x27, 20, 4); //lcd
+
 void setup()
 {
+  //lcd
+    lcd.init();                  
+    lcd.backlight();
+    lcd.setCursor(0,1);
+    lcd.print("   ** ch1mera OS    ");
+    lcd.setCursor(0,2);
+    lcd.print("  vb1.0 Loading.    ");
+
   // Iniciar chimeraOS
     Serial.begin(19200);
     Serial.print("Iniciando ch1mera OS");
@@ -36,12 +49,22 @@ void setup()
     //Nunchuck
     delay(1000);
     Serial.print(".");
+    lcd.clear();
+    lcd.setCursor(0,1);
+    lcd.print("   ** ch1mera OS    ");
+    lcd.setCursor(0,2);
+    lcd.print("  vb1.0 Loading..   ");
     nunchuck_setpowerpins();
     nunchuck_init(); // send the initilization handshake
 
     //Outputs and Inputs
     delay(1000);
     Serial.print(".");
+    lcd.clear();
+    lcd.setCursor(0,1);
+    lcd.print("   ** ch1mera OS    ");
+    lcd.setCursor(0,2);
+    lcd.print("  vb1.0 Loading...  ");
     pinMode(menuIndicator, OUTPUT);
     pinMode(homeIndicator, OUTPUT);
 
@@ -49,18 +72,27 @@ void setup()
     current = "Idle"; //Idle
 
     //GUI
-    delay(500);
-    Serial.print(". ");
     isMenuOpened = false;
     debug = false;
     digitalWrite(menuIndicator, LOW);
     digitalWrite(homeIndicator, HIGH);
-    delay(1500);
     Serial.println("- completado!");
+    delay(1500);
+    lcd.clear();
+    lcd.setCursor(0,1);
+    lcd.print("   ** ch1mera OS    ");
+    lcd.setCursor(0,2);
+    lcd.print("       vb1.0        ");
+    delay(500);
     Serial.println("-------------------------");
     Serial.print  ("    ch1meraOS   - ");
     Serial.println(current);
     Serial.println("  - Eyes not found (404) ");
+    lcd.clear();
+    lcd.setCursor(1,0); lcd.print("** ");
+    lcd.setCursor(0,1); lcd.print("Expresion: "); lcd.print(current);
+    lcd.setCursor(0,2); lcd.print("404; Eyes not found");
+    lcd.setCursor(15,3); lcd.print(version);
 }
 
 void loop() 
@@ -87,6 +119,16 @@ void loop()
       Serial.print((byte)zbut,DEC);
       Serial.print("\tcbut: ");
       Serial.println((byte)cbut,DEC);
+      lcd.clear();
+      lcd.setCursor(2,0);
+      lcd.print("Credits");
+      lcd.setCursor(1,2);
+      lcd.print("** ch1mera OS "); lcd.print (version);
+      lcd.setCursor(3,3);
+      lcd.print("by NeoYandrak");
+      lcd.setCursor(0,1);
+      lcd.print("====================");
+
     }
 
     if (cbut == 1) {
@@ -109,6 +151,11 @@ void loop()
        Serial.print  ("    ch1meraOS   - ");
        Serial.println(current);
        Serial.println("  - Eyes not found (404) ");
+       lcd.clear();
+    lcd.setCursor(1,0); lcd.print("** ");
+    lcd.setCursor(0,1); lcd.print("Expresion: "); lcd.print(current);
+    lcd.setCursor(0,2); lcd.print("404; Eyes not found");
+    lcd.setCursor(15,3); lcd.print(version);
       }
     }
 
@@ -183,21 +230,41 @@ void menu (int c){
       Serial.println("-------------------------");
       Serial.println("  > Idle        - Sad    ");
       Serial.println("  - Happy       - Angry  ");
+      lcd.clear();
+    lcd.setCursor(1,0); lcd.print("Menu");
+    lcd.setCursor(0,1); lcd.print(" > Idle    - Sad    ");
+    lcd.setCursor(0,2); lcd.print(" - Happy   - Angry  ");
+    lcd.setCursor(15,3); lcd.print(version);
       break;
     case 2:
       Serial.println("-------------------------");
       Serial.println("  - Idle        - Sad    ");
       Serial.println("  > Happy       - Angry  ");
+      lcd.clear();
+    lcd.setCursor(1,0); lcd.print("Menu");
+    lcd.setCursor(0,1); lcd.print(" - Idle    - Sad    ");
+    lcd.setCursor(0,2); lcd.print(" > Happy   - Angry  ");
+    lcd.setCursor(15,3); lcd.print(version);
       break;
     case 3:
       Serial.println("-------------------------");
       Serial.println("  - Idle        > Sad    ");
       Serial.println("  - Happy       - Angry  ");
+      lcd.clear();
+    lcd.setCursor(1,0); lcd.print("Menu");
+    lcd.setCursor(0,1); lcd.print(" - Idle    > Sad    ");
+    lcd.setCursor(0,2); lcd.print(" - Happy   - Angry  ");
+    lcd.setCursor(15,3); lcd.print(version);
       break;
     case 4:
       Serial.println("-------------------------");
       Serial.println("  - Idle        - Sad    ");
       Serial.println("  - Happy       > Angry  ");
+      lcd.clear();
+    lcd.setCursor(1,0); lcd.print("Menu");
+    lcd.setCursor(0,1); lcd.print(" - Idle    - Sad    ");
+    lcd.setCursor(0,2); lcd.print(" - Happy   > Angry  ");
+    lcd.setCursor(15,3); lcd.print(version);
       break;
   }
 }
@@ -233,7 +300,14 @@ void select (int c){
       Serial.println("      Seleccionado.      ");
       break;
   }
-  delay(400);
+  
+  lcd.clear();
+    lcd.setCursor(1,0); lcd.print("** ");
+    lcd.setCursor(0,1); lcd.print("      > "); lcd.print(current);
+    lcd.setCursor(0,2); lcd.print("      selected ");
+    lcd.setCursor(15,3); lcd.print(version);
+
+  delay(1000);
   isMenuOpened = false;   
   digitalWrite(menuIndicator, LOW);
   digitalWrite(homeIndicator, HIGH);
@@ -241,4 +315,9 @@ void select (int c){
   Serial.print  ("    ch1meraOS   - ");
   Serial.println(current);
   Serial.println("  - Eyes not found (404) ");
+  lcd.clear();
+    lcd.setCursor(1,0); lcd.print("** ");
+    lcd.setCursor(0,1); lcd.print("Expresion: "); lcd.print(current);
+    lcd.setCursor(0,2); lcd.print("404; Eyes not found");
+    lcd.setCursor(15,3); lcd.print(version);
 }
