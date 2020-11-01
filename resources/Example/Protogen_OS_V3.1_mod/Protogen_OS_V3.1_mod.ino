@@ -88,11 +88,12 @@ void setup() {                        //starting up sequence
   Serial.begin(9600);
   randomSeed(analogRead(0));
   m.init();
-  m.setIntensity(0);   // You can change the brightness of the matrices within a range of 0-15
+  m.setIntensity(9);   // You can change the brightness of the matrices within a range of 0-15
   m.clear();
   pinMode(interruptPin, OUTPUT);
   digitalWrite(2, HIGH);
   attachInterrupt(digitalPinToInterrupt(2), ISR_button, FALLING);
+
 
 #ifndef visorSensor
   state2 = 1;
