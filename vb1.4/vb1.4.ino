@@ -25,7 +25,7 @@ String current = "Idle";
 //Status Bar
 /*lock*/ bool lock;
 
-//ch1mera logo
+//lcd custom icons
 byte ch1_L[] = {B00001, B00010, B00100, B00010, B00001, B00000, B00000, B00000};
 byte ch1_R[] = {B00000, B00000, B10000, B01000, B00100, B01000, B10000, B00000};
 byte lock[] = {B01110, B10001, B10001, B11111, B11001, B10011, B11111, B00000};
