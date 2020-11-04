@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="protoOS"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Volumes/GitHub/Projects/protoOS/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Volumes/GitHub/Projects/protoOS/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Volumes/GitHub/Projects/protoOS/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="protoOS">
+				<Option output="/Volumes/GitHub/Projects/protoOS/cmake-build-debug/protoOS" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/GitHub/Projects/protoOS/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/."/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources/Example"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources/Example/Protogen_OS_V3.1_mod"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources/WiichuckDemo"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb0.1"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb0.2"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.0"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.0/led_test"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.1"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.2"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.3"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.4"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb2.0"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb3.0"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 protoOS"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="protoOS/fast">
+				<Option output="/Volumes/GitHub/Projects/protoOS/cmake-build-debug/protoOS" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Volumes/GitHub/Projects/protoOS/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/."/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources/Example"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources/Example/Protogen_OS_V3.1_mod"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/resources/WiichuckDemo"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb0.1"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb0.2"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.0"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.0/led_test"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.1"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.2"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.3"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb1.4"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb2.0"/>
+					<Add directory="/Volumes/GitHub/Projects/protoOS/vb3.0"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 protoOS/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Volumes/GitHub/Projects/protoOS/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/LICENSE">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/README.md">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/resources/Example/Protogen_OS_V3.1_mod/Protogen_OS_V3.1_mod.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/resources/WiichuckDemo/WiichuckDemo.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/resources/WiichuckDemo/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb0.1/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb0.1/vb0.1.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb0.2/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb0.2/vb0.2.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.0/led_test/led_test.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.0/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.0/vb1.0.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.1/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.1/vb1.1.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.2/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.2/vb1.2.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.3/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.3/vb1.3.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.4/materials.md">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.4/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb1.4/vb1.4.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb2.0/nunchuck_funcs.h">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb2.0/vb2.0.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/vb3.0/vb3.0.ino">
+			<Option target="protoOS"/>
+		</Unit>
+		<Unit filename="/Volumes/GitHub/Projects/protoOS/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

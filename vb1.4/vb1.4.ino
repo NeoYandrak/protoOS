@@ -63,7 +63,6 @@ void setup()
 	loading(4);
 	home();
 }
-
 void loop()
 {
 	if (loop_cnt > 150)
@@ -241,7 +240,6 @@ void loading(int c)
 	}
 	delay(500);
 }
-
 void home()
 {
 	lcd.clear();
@@ -252,7 +250,6 @@ void home()
 	lcd.setCursor(15, 3);
 	lcd.print(version);
 }
-
 void menu(int c)
 {
 	lcd.clear();
@@ -293,7 +290,6 @@ void menu(int c)
 		break;
 	}
 }
-
 void select(int c)
 {
 	switch (c)
@@ -326,7 +322,6 @@ void select(int c)
 
 	home();
 }
-
 void statusBar()
 {
 	lcd.setCursor(1, 0);

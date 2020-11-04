@@ -1,0 +1,3 @@
+/Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles/protoOS.dir
