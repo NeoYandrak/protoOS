@@ -1,0 +1,171 @@
+/*********************************************************
+ *** protoOS * vb3.0 ******************* by NeoYandrak ***
+ *********************************************************
+ *** Reescribir para Arduino Nano 33 Ble, ya que usa   ***
+ *** una arquitectura diferente y las librerías no me  ***
+ *** sirven.                                           ***
+ ********************************************************/
+#include <Wire.h>
+#if (ARDUINO >= 100)
+#include <Arduino.h>
+#else
+#include <WProgram.h>
+#endif
+static uint8_t nunchuck_buf[6];
+static void nunchuck_setpowerpins()
+{
+#define pwrpin PORTC3
+#define gndpin PORTC2
+  delay(100); // wait for things to stabilize
+}
+static void nunchuck_init()
+{
+  Wire.begin();                 // join i2c bus as master
+  Wire.beginTransmission(0x52); // transmit to device 0x52
+#if (ARDUINO >= 100)
+  Wire.write((uint8_t)0x40); // sends memory address
+  Wire.write((uint8_t)0x00); // sends sent a zero.
+#else
+  Wire.send((uint8_t)0x40); // sends memory address
+  Wire.send((uint8_t)0x00); // sends sent a zero.
+#endif
+  Wire.endTransmission(); // stop transmitting
+}
+static void nunchuck_send_request()
+{
+  Wire.beginTransmission(0x52); // transmit to device 0x52
+#if (ARDUINO >= 100)
+  Wire.write((uint8_t)0x00); // sends one byte
+#else
+  Wire.send((uint8_t)0x00); // sends one byte
+#endif
+  Wire.endTransmission(); // stop transmitting
+}
+static char nunchuk_decode_byte(char x)
+{
+  x = (x ^ 0x17) + 0x17;
+  return x;
+}
+static int nunchuck_get_data()
+{
+  int cnt = 0;
+  Wire.requestFrom(0x52, 6); // request data from nunchuck
+  while (Wire.available())
+  {
+    // receive byte as an integer
+#if (ARDUINO >= 100)
+    nunchuck_buf[cnt] = nunchuk_decode_byte(Wire.read());
+#else
+    nunchuck_buf[cnt] = nunchuk_decode_byte(Wire.receive());
+#endif
+    cnt++;
+  }
+  nunchuck_send_request(); // send request for next data payload
+  // If we recieved the 6 bytes, then go print them
+  if (cnt >= 5)
+  {
+    return 1; // success
+  }
+  return 0; //failure
+}
+static void nunchuck_print_data()
+{
+  static int i = 0;
+  int joy_x_axis = nunchuck_buf[0];
+  int joy_y_axis = nunchuck_buf[1];
+  int accel_x_axis = nunchuck_buf[2]; // * 2 * 2;
+  int accel_y_axis = nunchuck_buf[3]; // * 2 * 2;
+  int accel_z_axis = nunchuck_buf[4]; // * 2 * 2;
+  int z_button = 0;
+  int c_button = 0;
+  // byte nunchuck_buf[5] contains bits for z and c buttons
+  // it also contains the least significant bits for the accelerometer data
+  // so we have to check each bit of byte outbuf[5]
+  if ((nunchuck_buf[5] >> 0) & 1)
+    z_button = 1;
+  if ((nunchuck_buf[5] >> 1) & 1)
+    c_button = 1;
+  if ((nunchuck_buf[5] >> 2) & 1)
+    accel_x_axis += 1;
+  if ((nunchuck_buf[5] >> 3) & 1)
+    accel_x_axis += 2;
+  if ((nunchuck_buf[5] >> 4) & 1)
+    accel_y_axis += 1;
+  if ((nunchuck_buf[5] >> 5) & 1)
+    accel_y_axis += 2;
+  if ((nunchuck_buf[5] >> 6) & 1)
+    accel_z_axis += 1;
+  if ((nunchuck_buf[5] >> 7) & 1)
+    accel_z_axis += 2;
+  Serial.print(i, DEC);
+  Serial.print("\t");
+  Serial.print("joy:");
+  Serial.print(joy_x_axis, DEC);
+  Serial.print(",");
+  Serial.print(joy_y_axis, DEC);
+  Serial.print("  \t");
+  Serial.print("acc:");
+  Serial.print(accel_x_axis, DEC);
+  Serial.print(",");
+  Serial.print(accel_y_axis, DEC);
+  Serial.print(",");
+  Serial.print(accel_z_axis, DEC);
+  Serial.print("\t");
+  Serial.print("but:");
+  Serial.print(z_button, DEC);
+  Serial.print(",");
+  Serial.print(c_button, DEC);
+  Serial.print("\r\n"); // newline
+  i++;
+}
+static int nunchuck_zbutton()
+{
+  return ((nunchuck_buf[5] >> 0) & 1) ? 0 : 1; // voodoo
+}
+static int nunchuck_cbutton()
+{
+  return ((nunchuck_buf[5] >> 1) & 1) ? 0 : 1; // voodoo
+}
+static int nunchuck_joyx()
+{
+  return nunchuck_buf[0];
+}
+static int nunchuck_joyy()
+{
+  return nunchuck_buf[1];
+}
+int loop_cnt = 0;
+byte joyx, joyy, zbut, cbut;
+void printNunchuck()
+{
+  Serial.print("Z Button:  ");
+  Serial.print(zbut);
+  Serial.print("\tC Button:  ");
+  Serial.print(cbut);
+  Serial.print("\tX Joy:  ");
+  Serial.print(map(joyx, 15, 221, 0, 255));
+  Serial.print("\tY Joy:  ");
+  Serial.println(map(joyy, 29, 229, 0, 255));
+}
+void setup()
+{
+  Serial.begin(9600);
+  nunchuck_setpowerpins();
+  nunchuck_init(); // send the initilization handshake
+  Serial.println("Wii Nunchuck Ready");
+}
+void loop()
+{
+  if (loop_cnt > 10)
+  { // every 100 msecs get new data
+    loop_cnt = 0;
+    nunchuck_get_data();
+    zbut = nunchuck_zbutton();
+    cbut = nunchuck_cbutton();
+    joyx = nunchuck_joyx();
+    joyy = nunchuck_joyy();
+    printNunchuck();
+  }
+  loop_cnt++;
+  delay(1);
+}

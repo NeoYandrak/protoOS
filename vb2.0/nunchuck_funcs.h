@@ -15,10 +15,10 @@ static void nunchuck_setpowerpins()
 {
 #define pwrpin PORTC3
 #define gndpin PORTC2
-    DDRC |= _BV(pwrpin) | _BV(gndpin);
-    PORTC &=~ _BV(gndpin);
-    PORTC |=  _BV(pwrpin);
-    delay(100);  // wait for things to stabilize        
+    //DDRC |= _BV(pwrpin) | _BV(gndpin);
+    //PORTC &=~ _BV(gndpin);
+    //PORTC |=  _BV(pwrpin);
+    //delay(100);  // wait for things to stabilize        
 }
 
 // initialize the I2C system, join the I2C bus,
