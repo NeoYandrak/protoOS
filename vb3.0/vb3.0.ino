@@ -126,6 +126,51 @@ void setup()
   m.clear();
   loading(3);
 
+  //test
+  if (1 == 1) {
+    m.writeSprite(88, 0, icon01L); //Mouth and nose
+    m.writeSprite(80, 0, icon02L);
+    m.writeSprite(72, 0, icon03L);
+    m.writeSprite(64, 0, icon04L);
+    m.writeSprite(56, 0, noseLeft);
+    m.writeSprite(48, 0, noseRight);
+    m.writeSprite(40, 0, icon04);
+    m.writeSprite(32, 0, icon03);
+    m.writeSprite(24, 0, icon02);
+    m.writeSprite(16, 0, icon01);
+    if (counter2 > 17) { //Blink
+      for (int i = 0; i < 5; i++) {
+        column1L = column1L - 1;
+        column2L = column2L - 1;
+        column1 = column1 - 1;
+        column2 = column2 - 1;
+        column3L = column3L + 1;
+        column4L = column4L + 1;
+        column3 = column3 + 1;
+        column4 = column4 + 1;
+        m.setColumn(column1L, 00000000);
+        m.setColumn(column2L, 00000000);
+        m.setColumn(column3L, 00000000);
+        m.setColumn(column4L, 00000000);
+        m.setColumn(column1, 00000000);
+        m.setColumn(column2, 00000000);
+        m.setColumn(column3, 00000000);
+        m.setColumn(column4, 00000000);
+        delay(15);
+        counter2++;
+      }
+      column1L = 104;
+      column2L = 112;
+      column3L = 95;
+      column4L = 103;
+      column1 = 8;
+      column2 = 16;
+      column3 = -1;
+      column4 = 7;
+      counter2 = 0;
+    }
+  }
+
   // GUI
   isMenuOpened = false;
   isDebug = false;
@@ -137,8 +182,13 @@ void loop()
 {
   if (loop_cnt > 150)
   { // 150ms
-    Serial.println("Loop started");
+    //Serial.println("Loop started");
+    Serial.println(current);
+    Serial.println(currentN);
     loop_cnt = 0;
+
+    // Expresiones
+    expresion();
 
     // Obtener datos nunchuck
     nunchuck_get_data();
@@ -504,15 +554,19 @@ void select(int c)
   {
     case 1:
       current = "Idle";
+      currentN = 1;
       break;
     case 2:
       current = "Happy";
+      currentN = 2;
       break;
     case 3:
       current = "Sad";
+      currentN = 3;
       break;
     case 4:
       current = "Angry";
+      currentN = 4;
       break;
   }
 
@@ -563,15 +617,27 @@ void statusBar()
 // Expresion
 void expresion()
 {
+  m.writeSprite(104, 0, Eye01L);
+  m.writeSprite(96, 0, Eye02L);
+  m.writeSprite(8, 0, Eye02);
+  m.writeSprite(0, 0, Eye01);
+
+  m.writeSprite(56, 0, noseLeft);
+  m.writeSprite(48, 0, noseRight);
+
   switch (currentN)
   {
     case 1:
       if (current == "Idle")
       {
-        m.writeSprite(104, 0, Eye01L);
-        m.writeSprite(96, 0, Eye02L);
-        m.writeSprite(8, 0, Eye02);
-        m.writeSprite(0, 0, Eye01);
+        m.writeSprite(88, 0, icon01L);
+        m.writeSprite(80, 0, icon02L);
+        m.writeSprite(72, 0, icon03L);
+        m.writeSprite(64, 0, icon04L);
+        m.writeSprite(40, 0, icon04);
+        m.writeSprite(32, 0, icon03);
+        m.writeSprite(24, 0, icon02);
+        m.writeSprite(16, 0, icon01);
       }
       break;
     case 2:
@@ -587,8 +653,10 @@ void expresion()
       }
       break;
     case 4:
+      //Serial.println("Test");
       if (current == "Angry")
       {
+        //Serial.println("Test2");
         m.writeSprite(64, 0, Glitch044L);
         m.writeSprite(72, 0, Glitch033L);
         m.writeSprite(80, 0, Glitch022L);
@@ -599,45 +667,37 @@ void expresion()
         m.writeSprite(40, 0, Glitch044);
         delay(75);
         counter++;
-      }
-      if ((counter >= 17) && (counter < 18))
-      {
-        m.writeSprite(88, 0, icon01L);
-        m.writeSprite(80, 0, icon02L);
-        m.writeSprite(72, 0, icon03L);
-        m.writeSprite(64, 0, icon04L);
-        m.writeSprite(40, 0, icon04);
-        m.writeSprite(32, 0, icon03);
-        m.writeSprite(24, 0, icon02);
-        m.writeSprite(16, 0, icon01);
-        delay(200);
-        counter++;
-      }
-      if (counter >= 18)
-      {
-        m.writeSprite(64, 0, Glitch04L);
-        m.writeSprite(72, 0, Glitch03L);
-        m.writeSprite(80, 0, Glitch02L);
-        m.writeSprite(88, 0, Glitch01L);
-        m.writeSprite(16, 0, Glitch01);
-        m.writeSprite(24, 0, Glitch02);
-        m.writeSprite(32, 0, Glitch03);
-        m.writeSprite(40, 0, Glitch04);
-        delay(75);
-        counter = 0;
+        if (counter == 17)
+        {
+          //Serial.println("Test3");
+          m.writeSprite(88, 0, icon01L);
+          m.writeSprite(80, 0, icon02L);
+          m.writeSprite(72, 0, icon03L);
+          m.writeSprite(64, 0, icon04L);
+          m.writeSprite(40, 0, icon04);
+          m.writeSprite(32, 0, icon03);
+          m.writeSprite(24, 0, icon02);
+          m.writeSprite(16, 0, icon01);
+          delay(200);
+          counter++;
+        }
+        if (counter >= 19)
+        {
+          //Serial.println("Test4");
+          m.writeSprite(64, 0, Glitch04L);
+          m.writeSprite(72, 0, Glitch03L);
+          m.writeSprite(80, 0, Glitch02L);
+          m.writeSprite(88, 0, Glitch01L);
+          m.writeSprite(16, 0, Glitch01);
+          m.writeSprite(24, 0, Glitch02);
+          m.writeSprite(32, 0, Glitch03);
+          m.writeSprite(40, 0, Glitch04);
+          delay(75);
+          counter = 0;
+        }
       }
       break;
   }
-  m.writeSprite(88, 0, icon01L); //Mouth and nose
-  m.writeSprite(80, 0, icon02L);
-  m.writeSprite(72, 0, icon03L);
-  m.writeSprite(64, 0, icon04L);
-  m.writeSprite(56, 0, noseLeft);
-  m.writeSprite(48, 0, noseRight);
-  m.writeSprite(40, 0, icon04);
-  m.writeSprite(32, 0, icon03);
-  m.writeSprite(24, 0, icon02);
-  m.writeSprite(16, 0, icon01);
   if (counter2 > 17)
   { //Blink
     for (int i = 0; i < 5; i++)
