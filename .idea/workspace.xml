@@ -15,7 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a90f69a6-428d-40da-928b-0e23358c325f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vb3.0/vb3.0.ino" beforeDir="false" afterPath="$PROJECT_DIR$/vb3.0/vb3.0.ino" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +54,17 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="net.vektah.codeglance.config.ConfigEntry" />
   </component>
   <component name="RunManager">
     <configuration name="protoOS" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="protoOS" TARGET_NAME="protoOS" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="protoOS" RUN_TARGET_NAME="protoOS">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -76,9 +81,8 @@
       <workItem from="1604505873138" duration="2890000" />
       <workItem from="1604508811370" duration="195000" />
       <workItem from="1604509039025" duration="2751000" />
-      <workItem from="1604576561451" duration="267000" />
-      <workItem from="1604576852920" duration="1327000" />
-      <workItem from="1604578611098" duration="1735000" />
+      <workItem from="1604863791770" duration="117000" />
+      <workItem from="1604863931277" duration="656000" />
     </task>
     <servers />
   </component>
@@ -109,6 +113,11 @@
           <url>file://$PROJECT_DIR$/vb2.0/vb2.0.ino</url>
           <line>422</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/vb3.0/vb3.0.ino</url>
+          <line>643</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
