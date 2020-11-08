@@ -468,7 +468,7 @@ void menu(int c)
       lcd.setCursor(1, 1);
       lcd.print("> Idle    - Sad    ");
       lcd.setCursor(0, 2);
-      lcd.print(" -Surprise - Angry  ");
+      lcd.print(" - Happy   - Angry  ");
       lcd.setCursor(15, 3);
       lcd.print(version);
       break;
@@ -476,7 +476,7 @@ void menu(int c)
       lcd.setCursor(0, 1);
       lcd.print(" - Idle    - Sad    ");
       lcd.setCursor(0, 2);
-      lcd.print(" >Surprise - Angry  ");
+      lcd.print(" > Happy   - Angry  ");
       lcd.setCursor(15, 3);
       lcd.print(version);
       break;
@@ -484,7 +484,7 @@ void menu(int c)
       lcd.setCursor(0, 1);
       lcd.print(" - Idle    > Sad    ");
       lcd.setCursor(0, 2);
-      lcd.print(" -Surprise - Angry  ");
+      lcd.print(" - Happy   - Angry  ");
       lcd.setCursor(15, 3);
       lcd.print(version);
       break;
@@ -492,7 +492,7 @@ void menu(int c)
       lcd.setCursor(0, 1);
       lcd.print(" - Idle    - Sad    ");
       lcd.setCursor(0, 2);
-      lcd.print(" -Surprise > Angry  ");
+      lcd.print(" - Happy   > Angry  ");
       lcd.setCursor(15, 3);
       lcd.print(version);
       break;
@@ -506,7 +506,7 @@ void select(int c)
       current = "Idle";
       break;
     case 2:
-      current = "Surprise";
+      current = "Happy";
       break;
     case 3:
       current = "Sad";
@@ -575,12 +575,9 @@ void expresion()
       }
       break;
     case 2:
-      if (current == "Surprise")
+      if (current == "Happy")
       {
-        m.writeSprite(104, 0, Spooked1L);
-        m.writeSprite(96, 0, Spooked2L);
-        m.writeSprite(8, 0, Spooked1);
-        m.writeSprite(0, 0, Spooked2);
+        //program Happy
       }
       break;
     case 3:

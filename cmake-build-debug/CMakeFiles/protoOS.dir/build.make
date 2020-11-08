@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Volumes/Macintosh HD/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Volumes/Macintosh HD/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = "/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yandrak/Desktop/git/protoOS
+CMAKE_SOURCE_DIR = /Volumes/GitHub/Projects/protoOS
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yandrak/Desktop/git/protoOS/cmake-build-debug
+CMAKE_BINARY_DIR = /Volumes/GitHub/Projects/protoOS/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/protoOS.dir/depend.make
@@ -82,6 +82,6 @@ CMakeFiles/protoOS.dir/clean:
 .PHONY : CMakeFiles/protoOS.dir/clean
 
 CMakeFiles/protoOS.dir/depend:
-	cd /Users/yandrak/Desktop/git/protoOS/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yandrak/Desktop/git/protoOS /Users/yandrak/Desktop/git/protoOS /Users/yandrak/Desktop/git/protoOS/cmake-build-debug /Users/yandrak/Desktop/git/protoOS/cmake-build-debug /Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles/protoOS.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Volumes/GitHub/Projects/protoOS/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Volumes/GitHub/Projects/protoOS /Volumes/GitHub/Projects/protoOS /Volumes/GitHub/Projects/protoOS/cmake-build-debug /Volumes/GitHub/Projects/protoOS/cmake-build-debug /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles/protoOS.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/protoOS.dir/depend
 
