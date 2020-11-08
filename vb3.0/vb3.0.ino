@@ -77,6 +77,8 @@ unsigned char Angry1L[] = {8, 8, B00000000, B10000000, B11100000, B11111000, B11
 unsigned char Spooked1L[] = {8, 8, B00000001, B00000111, B00000111, B00001111, B00001111, B00000111, B00000111, B00000001};
 unsigned char Spooked2L[] = {8, 8, B10000000, B11100000, B11100000, B11110000, B11110000, B11100000, B11100000, B10000000};
 
+int blinkTime = 17;
+
 // MaxMatrix
 int DIN = 6;
 int CLK = 7;
@@ -617,19 +619,19 @@ void statusBar()
 // Expresion
 void expresion()
 {
-  m.writeSprite(104, 0, Eye01L);
-  m.writeSprite(96, 0, Eye02L);
-  m.writeSprite(8, 0, Eye02);
-  m.writeSprite(0, 0, Eye01);
-
-  m.writeSprite(56, 0, noseLeft);
-  m.writeSprite(48, 0, noseRight);
-
   switch (currentN)
   {
     case 1:
       if (current == "Idle")
       {
+        m.writeSprite(104, 0, Eye01L);
+        m.writeSprite(96, 0, Eye02L);
+        m.writeSprite(8, 0, Eye02);
+        m.writeSprite(0, 0, Eye01);
+
+        m.writeSprite(56, 0, noseLeft);
+        m.writeSprite(48, 0, noseRight);
+
         m.writeSprite(88, 0, icon01L);
         m.writeSprite(80, 0, icon02L);
         m.writeSprite(72, 0, icon03L);
@@ -638,6 +640,8 @@ void expresion()
         m.writeSprite(32, 0, icon03);
         m.writeSprite(24, 0, icon02);
         m.writeSprite(16, 0, icon01);
+
+        blink(blinkTime);
       }
       break;
     case 2:
@@ -647,6 +651,20 @@ void expresion()
         m.writeSprite(96, 0, Spooked2L);
         m.writeSprite(8, 0, Spooked1);
         m.writeSprite(0, 0, Spooked2);
+
+        m.writeSprite(56, 0, noseLeft);
+        m.writeSprite(48, 0, noseRight);
+
+        m.writeSprite(88, 0, icon01L);
+        m.writeSprite(80, 0, icon02L);
+        m.writeSprite(72, 0, icon03L);
+        m.writeSprite(64, 0, icon04L);
+        m.writeSprite(40, 0, icon04);
+        m.writeSprite(32, 0, icon03);
+        m.writeSprite(24, 0, icon02);
+        m.writeSprite(16, 0, icon01);
+
+        blink(blinkTime);
       }
       break;
     case 3:
@@ -659,6 +677,14 @@ void expresion()
       //Serial.println("Test");
       if (current == "Angry")
       {
+        m.writeSprite(104, 0, Eye01L);
+        m.writeSprite(96, 0, Eye02L);
+        m.writeSprite(8, 0, Eye02);
+        m.writeSprite(0, 0, Eye01);
+
+        m.writeSprite(56, 0, noseLeft);
+        m.writeSprite(48, 0, noseRight);
+
         //Serial.println("Test2");
         m.writeSprite(64, 0, Glitch044L);
         m.writeSprite(72, 0, Glitch033L);
@@ -698,10 +724,17 @@ void expresion()
           delay(75);
           counter = 0;
         }
+
+        blink(blinkTime);
       }
       break;
   }
-  if (counter2 > 17)
+  counter2++;
+}
+
+void blink(int c)
+{
+  if (counter2 > c)
   { //Blink
     for (int i = 0; i < 5; i++)
     {
@@ -734,5 +767,4 @@ void expresion()
     column4 = 7;
     counter2 = 0;
   }
-  counter2++;
 }
