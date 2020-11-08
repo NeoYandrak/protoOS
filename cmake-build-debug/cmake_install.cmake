@@ -1,4 +1,4 @@
-# Install script for directory: /Volumes/GitHub/Projects/protoOS
+# Install script for directory: /Users/yandrak/Desktop/git/protoOS
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Volumes/GitHub/Projects/protoOS/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
