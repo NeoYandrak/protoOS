@@ -68,10 +68,10 @@ RM = "/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake" -E rm
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/GitHub/Projects/protoOS
+CMAKE_SOURCE_DIR = "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/GitHub/Projects/protoOS/cmake-build-debug
+CMAKE_BINARY_DIR = "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles" "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

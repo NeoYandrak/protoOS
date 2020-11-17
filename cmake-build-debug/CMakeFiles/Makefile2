@@ -64,10 +64,10 @@ RM = "/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake" -E rm
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/GitHub/Projects/protoOS
+CMAKE_SOURCE_DIR = "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/GitHub/Projects/protoOS/cmake-build-debug
+CMAKE_BINARY_DIR = "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -94,14 +94,14 @@ clean: CMakeFiles/protoOS.dir/clean
 CMakeFiles/protoOS.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/protoOS.dir/build.make CMakeFiles/protoOS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/protoOS.dir/build.make CMakeFiles/protoOS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles --progress-num= "Built target protoOS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles" --progress-num= "Built target protoOS"
 .PHONY : CMakeFiles/protoOS.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/protoOS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles" 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/protoOS.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/protoOS.dir/rule
 
 # Convenience name for target.

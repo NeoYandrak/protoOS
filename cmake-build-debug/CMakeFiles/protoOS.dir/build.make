@@ -63,10 +63,10 @@ RM = "/Applications/CLion 2020.3 EAP.app/Contents/bin/cmake/mac/bin/cmake" -E rm
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Volumes/GitHub/Projects/protoOS
+CMAKE_SOURCE_DIR = "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Volumes/GitHub/Projects/protoOS/cmake-build-debug
+CMAKE_BINARY_DIR = "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/protoOS.dir/depend.make
@@ -82,6 +82,6 @@ CMakeFiles/protoOS.dir/clean:
 .PHONY : CMakeFiles/protoOS.dir/clean
 
 CMakeFiles/protoOS.dir/depend:
-	cd /Volumes/GitHub/Projects/protoOS/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Volumes/GitHub/Projects/protoOS /Volumes/GitHub/Projects/protoOS /Volumes/GitHub/Projects/protoOS/cmake-build-debug /Volumes/GitHub/Projects/protoOS/cmake-build-debug /Volumes/GitHub/Projects/protoOS/cmake-build-debug/CMakeFiles/protoOS.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS" "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS" "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug" "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug" "/Volumes/macOS Big Sur - Datos/Users/yandrak/Desktop/git/protoOS/cmake-build-debug/CMakeFiles/protoOS.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/protoOS.dir/depend
 

@@ -182,7 +182,7 @@ void setup()
 }
 void loop()
 {
-  if (loop_cnt > 150)
+  if (loop_cnt > 50)
   { // 150ms
     //Serial.println("Loop started");
     Serial.println(current);
@@ -279,9 +279,9 @@ void loop()
       {
         //Serial.println("Caso 3");
         cursor = cursor + 1;
-        if (cursor <= 0)
+        if (cursor >= 5)
         {
-          cursor = 1;
+          cursor = 4;
         }
         menu(cursor);
       }
@@ -289,9 +289,9 @@ void loop()
       {
         //Serial.println("Caso 4");
         cursor = cursor - 1;
-        if (cursor >= 5)
+        if (cursor <= 0)
         {
-          cursor = 4;
+          cursor = 1;
         }
         menu(cursor);
       }
