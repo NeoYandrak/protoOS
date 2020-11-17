@@ -1,8 +1,7 @@
 /*********************************************************
- *** protoOS * vb3.1 ******************* by NeoYandrak ***
+ *** protoOS * vb3.2 ******************* by NeoYandrak ***
  *********************************************************
- *** Comenzando a programar la matriz de leds para ch1 ***
- *** en nano33 con MAX2791.                            ***
+ *** Páginas en el menú de expresión                   ***
  ********************************************************/
 
 // Include libraries
@@ -38,6 +37,8 @@ byte lockS[] = {B01110, B10001, B10001, B11111, B11001, B10011, B11111, B00000};
 byte openS[] = {B00110, B01001, B00001, B11111, B11001, B10011, B11111, B00000};
 
 // Expresiones
+int expresionNumber = 5;
+int expresionNumberp1;
 unsigned char noseRight[] = {8, 8, B00000000, B00000000, B10000000, B11000000, B11000000, B11111100, B01111110, B00000000};
 unsigned char icon01[] = {8, 8, B00100000, B01111000, B11011110, B11000111, B11111111, B00000000, B00000000, B00000000};
 unsigned char icon02[] = {8, 8, B00000000, B00000000, B00000000, B10000000, B11100000, B01111000, B00011110, B00000111};
@@ -53,6 +54,8 @@ unsigned char Glitch04[] = {8, 8, B00000000, B00000000, B10010101, B10011010, B1
 unsigned char Glitch044[] = {8, 8, B00000000, B00000000, B10001000, B10101010, B00011011, B10010101, B00000001, B00000000};
 unsigned char Eye02[] = {8, 8, B00000000, B00000000, B00000110, B00001111, B11111111, B11111110, B11111100, B11110000};
 unsigned char Eye01[] = {8, 8, B00000000, B00000000, B10000000, B11100000, B01111111, B00011111, B00000111, B00000000};
+unsigned char EyeOH01[] = {8, 8, B00000000, B00110001, B00110001, B00110001, B00110001, B00000000, B00110001, B00110001};
+unsigned char EyeOH02[] = {8, 8, B00000000, B10001100, B10001100, B10001100, B10001100, B00000000, B10001100, B10001100};
 unsigned char Angry1[] = {8, 8, B00000000, B11000000, B11110000, B11111000, B11111100, B11111100, B11111000, B00000000};
 unsigned char Angry2[] = {8, 8, B00000000, B00000001, B00000111, B00011111, B00111111, B01111111, B00111111, B00000000};
 unsigned char Spooked1[] = {8, 8, B00000001, B00000111, B00000111, B00001111, B00001111, B00000111, B00000111, B00000001};
@@ -72,6 +75,8 @@ unsigned char Glitch04L[] = {8, 8, B00000000, B00000000, B10101001, B01011001, B
 unsigned char Glitch044L[] = {8, 8, B00000000, B00000000, B00010001, B00000110, B01010101, B11011000, B10101001, B10000000};
 unsigned char Eye02L[] = {8, 8, B00000000, B00000000, B01100000, B11110000, B11111111, B01111111, B00111111, B00001111};
 unsigned char Eye01L[] = {8, 8, B00000000, B00000000, B00000001, B00000111, B11111110, B11111000, B11100000, B00000000};
+unsigned char EyeOH01L[] = {8, 8, B00000000, B00110001, B00110001, B00110001, B00110001, B00000000, B00110001, B00110001};
+unsigned char EyeOH02L[] = {8, 8, B00000000, B10001100, B10001100, B10001100, B10001100, B00000000, B10001100, B10001100};
 unsigned char Angry2L[] = {8, 8, B00000000, B00000011, B00001111, B00011111, B00111111, B00111111, B00011111, B00000000};
 unsigned char Angry1L[] = {8, 8, B00000000, B10000000, B11100000, B11111000, B11111100, B11111110, B11111100, B00000000};
 unsigned char Spooked1L[] = {8, 8, B00000001, B00000111, B00000111, B00001111, B00001111, B00000111, B00000111, B00000001};
@@ -98,7 +103,7 @@ MaxMatrix m(DIN, CS, CLK, maxInUse);
 int loop_cnt = 0;
 int counter = 0;
 int counter2 = 0;
-String version = "vb3.1";
+String version = "vb3.2";
 
 // Main Program
 void setup()
@@ -117,6 +122,7 @@ void setup()
   nunchuck_setpowerpins();
   nunchuck_init(); // send the initilization handshake
   Serial.println("Wii Nunchuck Ready");
+  expresionNumberp1 = expresionNumber + 1;
   loading(2);
 
   // Expresión
@@ -267,9 +273,9 @@ void loop()
       {
         //Serial.println("Caso 2");
         cursor = cursor + 2;
-        if (cursor >= 5)
+        if (cursor >= expresionNumberp1)
         {
-          cursor = 4;
+          cursor = expresionNumber;
         }
         menu(cursor);
       }
@@ -279,9 +285,9 @@ void loop()
       {
         //Serial.println("Caso 3");
         cursor = cursor + 1;
-        if (cursor >= 5)
+        if (cursor >= expresionNumberp1)
         {
-          cursor = 4;
+          cursor = expresionNumber;
         }
         menu(cursor);
       }
@@ -548,6 +554,14 @@ void menu(int c)
       lcd.setCursor(15, 3);
       lcd.print(version);
       break;
+    case 5:
+      lcd.setCursor(0, 1);
+      lcd.print(" >Overheat          ");
+      lcd.setCursor(0, 2);
+      lcd.print("                    ");
+      lcd.setCursor(15, 3);
+      lcd.print(version);
+      break;
   }
 }
 void select(int c)
@@ -570,6 +584,10 @@ void select(int c)
       current = "Angry";
       currentN = 4;
       break;
+    case 5:
+       current = "Overheat";
+       currentN = 5;
+       break;
   }
 
   isMenuOpened = false;
@@ -728,6 +746,13 @@ void expresion()
         blink(blinkTime);
       }
       break;
+      case 5:
+        if (current == "Overheat"){
+            m.writeSprite(104, 0, EyeOH02L);
+            m.writeSprite(96, 0, EyeOH01L);
+            m.writeSprite(8, 0, EyeOH02);
+            m.writeSprite(0, 0, EyeOH01);
+        }
   }
   counter2++;
 }
