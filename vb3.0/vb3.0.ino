@@ -697,7 +697,7 @@ void expresion()
     case 3:
       if (current == "Sad")
       {
-        //program Sad
+        //do Sad
       }
       break;
     case 4:
