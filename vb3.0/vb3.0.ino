@@ -87,7 +87,7 @@ unsigned char Spooked2L[] = {8, 8, B10000000, B11100000, B11100000, B11110000, B
 int blinkTime = 17;
 
 // MaxMatrix
-int DIN1 = 6;
+int DIN1 = 6; 
 int CLK1 = 7;
 int CS1 = 8;
 int DIN2 = 3;
@@ -102,8 +102,8 @@ int column1 = 8;
 int column2 = 16;
 int column3 = -1;
 int column4 = 7;
-MaxMatrix m(DIN1, CS1, CLK1, maxInUse);
-MaxMatrix l(DIN2, CS2, CLK2, maxInUse);
+MaxMatrix m(DIN1, CS1, CLK1, maxInUse); //bi part one - R
+MaxMatrix l(DIN2, CS2, CLK2, maxInUse); //bi part two - L
 
 // Others
 int loop_cnt = 0;
