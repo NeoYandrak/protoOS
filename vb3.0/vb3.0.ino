@@ -284,7 +284,7 @@ static void nunchuck_setpowerpins()
 }
 static void nunchuck_init()
 {
-  Wire.begin();                 // join i2c bus as master
+  Wire.begin();                 // join bus as master
   Wire.beginTransmission(0x52); // transmit to device 0x52
 #if (ARDUINO >= 100)
   Wire.write((uint8_t)0x40); // sends memory address
