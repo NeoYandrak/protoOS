@@ -651,18 +651,19 @@ void expresion()
     case 1:
       if (current == "Idle")
       {
+        //Probando si es porque no puede tener tantos displays el arduino en un mismo puerto, por lo que hay el display l y el display m
         l.writeSprite(40, 0, Eye01L);
         l.writeSprite(48, 0, Eye02L);
         m.writeSprite(8, 0, Eye02);
         m.writeSprite(0, 0, Eye01);
 
-        m.writeSprite(56, 0, noseLeft);
+        l.writeSprite(0, 0, noseLeft);
         m.writeSprite(48, 0, noseRight);
 
-        m.writeSprite(88, 0, icon01L);
-        m.writeSprite(80, 0, icon02L);
-        m.writeSprite(72, 0, icon03L);
-        m.writeSprite(64, 0, icon04L);
+        l.writeSprite(32, 0, icon01L);
+        l.writeSprite(24, 0, icon02L);
+        l.writeSprite(16, 0, icon03L);
+        l.writeSprite(8, 0, icon04L);
         m.writeSprite(40, 0, icon04);
         m.writeSprite(32, 0, icon03);
         m.writeSprite(24, 0, icon02);
