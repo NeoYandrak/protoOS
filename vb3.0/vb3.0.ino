@@ -1,8 +1,10 @@
 /*********************************************************
  *** protoOS * vb3.2 ******************* by NeoYandrak ***
  *********************************************************
- *** Páginas en el menú de expresión                   ***
+ *** Debugging en leds de la cara                      ***
  ********************************************************/
+
+//BLINKING ANIMATION MAY NOT WORK
 
 // Include libraries
 #include <Wire.h> //For I2C
@@ -85,19 +87,23 @@ unsigned char Spooked2L[] = {8, 8, B10000000, B11100000, B11100000, B11110000, B
 int blinkTime = 17;
 
 // MaxMatrix
-int DIN = 6;
-int CLK = 7;
-int CS = 8;
-int maxInUse = 14;
-int column1L = 104;
-int column2L = 112;
-int column3L = 95;
-int column4L = 103;
+int DIN1 = 6;
+int CLK1 = 7;
+int CS1 = 8;
+int DIN2 = 3;
+int CLK2 = 4;
+int CS2 = 5;
+int maxInUse = 7;
+int column1L = 40;
+int column2L = 48;
+int column3L = 31;
+int column4L = 39;
 int column1 = 8;
 int column2 = 16;
 int column3 = -1;
 int column4 = 7;
-MaxMatrix m(DIN, CS, CLK, maxInUse);
+MaxMatrix m(DIN1, CS1, CLK1, maxInUse);
+MaxMatrix l(DIN2, CS2, CLK2, maxInUse);
 
 // Others
 int loop_cnt = 0;
@@ -132,6 +138,9 @@ void setup()
   m.init();
   m.setIntensity(9); //0-15
   m.clear();
+  l.init();
+  l.setIntensity(9); //0-15
+  l.clear();
   loading(3);
 
   //test
@@ -585,9 +594,9 @@ void select(int c)
       currentN = 4;
       break;
     case 5:
-       current = "Overheat";
-       currentN = 5;
-       break;
+      current = "Overheat";
+      currentN = 5;
+      break;
   }
 
   isMenuOpened = false;
@@ -642,8 +651,8 @@ void expresion()
     case 1:
       if (current == "Idle")
       {
-        m.writeSprite(104, 0, Eye01L);
-        m.writeSprite(96, 0, Eye02L);
+        l.writeSprite(40, 0, Eye01L);
+        l.writeSprite(48, 0, Eye02L);
         m.writeSprite(8, 0, Eye02);
         m.writeSprite(0, 0, Eye01);
 
@@ -771,10 +780,10 @@ void blink(int c)
       column4L = column4L + 1;
       column3 = column3 + 1;
       column4 = column4 + 1;
-      m.setColumn(column1L, 00000000);
-      m.setColumn(column2L, 00000000);
-      m.setColumn(column3L, 00000000);
-      m.setColumn(column4L, 00000000);
+      l.setColumn(column1L, 00000000);
+      l.setColumn(column2L, 00000000);
+      l.setColumn(column3L, 00000000);
+      l.setColumn(column4L, 00000000);
       m.setColumn(column1, 00000000);
       m.setColumn(column2, 00000000);
       m.setColumn(column3, 00000000);
@@ -782,10 +791,9 @@ void blink(int c)
       delay(15);
       counter2++;
     }
-    column1L = 104;
-    column2L = 112;
-    column3L = 95;
-    column4L = 103;
+    column2L = 48;
+    column3L = 31;
+    column4L = 39; 
     column1 = 8;
     column2 = 16;
     column3 = -1;
