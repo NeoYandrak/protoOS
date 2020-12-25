@@ -5,6 +5,8 @@
  ********************************************************/
 
 //BLINKING ANIMATION MAY NOT WORK
+//Blinking animation is done in two parts
+//?_?
 
 // Include libraries
 #include <Wire.h> //For I2C
