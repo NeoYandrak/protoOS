@@ -798,10 +798,10 @@ void blink(int c)
       delay(15);
       counter2++;
     }
-    column1L = 40;
-    column2L = 48;
-    column3L = 47;
-    column4L = 39;
+    column1L = 48;
+    column2L = 56;
+    column3L = 39;
+    column4L = 49;
     column1 = 8;
     column2 = 16;
     column3 = -1;
