@@ -205,8 +205,6 @@ void loop()
   if (loop_cnt > 50)
   { // 150ms
     //Serial.println("Loop started");
-    Serial.println(current);
-    Serial.println(currentN);
     loop_cnt = 0;
 
     // Expresiones
