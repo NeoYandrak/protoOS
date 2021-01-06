@@ -89,7 +89,7 @@ unsigned char Spooked2L[] = {8, 8, B10000000, B11100000, B11100000, B11110000, B
 int blinkTime = 17;
 
 // MaxMatrix
-int DIN1 = 6; 
+int DIN1 = 6;
 int CLK1 = 7;
 int CS1 = 8;
 int DIN2 = 3;
@@ -146,7 +146,8 @@ void setup()
   loading(3);
 
   //test
-  if (1 == 1) {
+  if (1 == 1)
+  {
     m.writeSprite(88, 0, icon01L); //Mouth and nose
     m.writeSprite(80, 0, icon02L);
     m.writeSprite(72, 0, icon03L);
@@ -157,8 +158,10 @@ void setup()
     m.writeSprite(32, 0, icon03);
     m.writeSprite(24, 0, icon02);
     m.writeSprite(16, 0, icon01);
-    if (counter2 > 17) { //Blink
-      for (int i = 0; i < 5; i++) {
+    if (counter2 > 17)
+    { //Blink
+      for (int i = 0; i < 5; i++)
+      {
         column1L = column1L - 1;
         column2L = column2L - 1;
         column1 = column1 - 1;
@@ -490,30 +493,30 @@ void loading(int c)
   lcd.print(" ch1mera OS");
   switch (c)
   {
-    case 1:
-      lcd.setCursor(0, 2);
-      lcd.print("  ");
-      lcd.print(version);
-      lcd.print(" Loading.");
-      break;
-    case 2:
-      lcd.setCursor(0, 2);
-      lcd.print("  ");
-      lcd.print(version);
-      lcd.print(" Loading..");
-      break;
-    case 3:
-      lcd.setCursor(0, 2);
-      lcd.print("  ");
-      lcd.print(version);
-      lcd.print(" Loading...");
-      delay(500);
-      break;
-    case 4:
-      lcd.setCursor(0, 2);
-      lcd.print("       ");
-      lcd.print(version);
-      break;
+  case 1:
+    lcd.setCursor(0, 2);
+    lcd.print("  ");
+    lcd.print(version);
+    lcd.print(" Loading.");
+    break;
+  case 2:
+    lcd.setCursor(0, 2);
+    lcd.print("  ");
+    lcd.print(version);
+    lcd.print(" Loading..");
+    break;
+  case 3:
+    lcd.setCursor(0, 2);
+    lcd.print("  ");
+    lcd.print(version);
+    lcd.print(" Loading...");
+    delay(500);
+    break;
+  case 4:
+    lcd.setCursor(0, 2);
+    lcd.print("       ");
+    lcd.print(version);
+    break;
   }
   delay(500);
 }
@@ -533,72 +536,72 @@ void menu(int c)
   statusBar();
   switch (c)
   {
-    case 1:
-      lcd.setCursor(1, 1);
-      lcd.print("> Idle    - Sad    ");
-      lcd.setCursor(0, 2);
-      lcd.print(" -Surprise - Angry  ");
-      lcd.setCursor(15, 3);
-      lcd.print(version);
-      break;
-    case 2:
-      lcd.setCursor(0, 1);
-      lcd.print(" - Idle    - Sad    ");
-      lcd.setCursor(0, 2);
-      lcd.print(" >Surprise - Angry  ");
-      lcd.setCursor(15, 3);
-      lcd.print(version);
-      break;
-    case 3:
-      lcd.setCursor(0, 1);
-      lcd.print(" - Idle    > Sad    ");
-      lcd.setCursor(0, 2);
-      lcd.print(" -Surprise - Angry  ");
-      lcd.setCursor(15, 3);
-      lcd.print(version);
-      break;
-    case 4:
-      lcd.setCursor(0, 1);
-      lcd.print(" - Idle    - Sad    ");
-      lcd.setCursor(0, 2);
-      lcd.print(" -Surprise > Angry  ");
-      lcd.setCursor(15, 3);
-      lcd.print(version);
-      break;
-    case 5:
-      lcd.setCursor(0, 1);
-      lcd.print(" >Overheat          ");
-      lcd.setCursor(0, 2);
-      lcd.print("                    ");
-      lcd.setCursor(15, 3);
-      lcd.print(version);
-      break;
+  case 1:
+    lcd.setCursor(1, 1);
+    lcd.print("> Idle    - Sad    ");
+    lcd.setCursor(0, 2);
+    lcd.print(" -Surprise - Angry  ");
+    lcd.setCursor(15, 3);
+    lcd.print(version);
+    break;
+  case 2:
+    lcd.setCursor(0, 1);
+    lcd.print(" - Idle    - Sad    ");
+    lcd.setCursor(0, 2);
+    lcd.print(" >Surprise - Angry  ");
+    lcd.setCursor(15, 3);
+    lcd.print(version);
+    break;
+  case 3:
+    lcd.setCursor(0, 1);
+    lcd.print(" - Idle    > Sad    ");
+    lcd.setCursor(0, 2);
+    lcd.print(" -Surprise - Angry  ");
+    lcd.setCursor(15, 3);
+    lcd.print(version);
+    break;
+  case 4:
+    lcd.setCursor(0, 1);
+    lcd.print(" - Idle    - Sad    ");
+    lcd.setCursor(0, 2);
+    lcd.print(" -Surprise > Angry  ");
+    lcd.setCursor(15, 3);
+    lcd.print(version);
+    break;
+  case 5:
+    lcd.setCursor(0, 1);
+    lcd.print(" >Overheat          ");
+    lcd.setCursor(0, 2);
+    lcd.print("                    ");
+    lcd.setCursor(15, 3);
+    lcd.print(version);
+    break;
   }
 }
 void select(int c)
 {
   switch (c)
   {
-    case 1:
-      current = "Idle";
-      currentN = 1;
-      break;
-    case 2:
-      current = "Surprise";
-      currentN = 2;
-      break;
-    case 3:
-      current = "Sad";
-      currentN = 3;
-      break;
-    case 4:
-      current = "Angry";
-      currentN = 4;
-      break;
-    case 5:
-      current = "Overheat";
-      currentN = 5;
-      break;
+  case 1:
+    current = "Idle";
+    currentN = 1;
+    break;
+  case 2:
+    current = "Surprise";
+    currentN = 2;
+    break;
+  case 3:
+    current = "Sad";
+    currentN = 3;
+    break;
+  case 4:
+    current = "Angry";
+    currentN = 4;
+    break;
+  case 5:
+    current = "Overheat";
+    currentN = 5;
+    break;
   }
 
   isMenuOpened = false;
@@ -650,41 +653,85 @@ void expresion()
 {
   switch (currentN)
   {
-    case 1:
-      if (current == "Idle")
+  case 1:
+    if (current == "Idle")
+    {
+      //Probando si es porque no puede tener tantos displays el arduino en un mismo puerto, por lo que hay el display l y el display m
+      l.writeSprite(40, 0, Eye01L);
+      l.writeSprite(48, 0, Eye02L);
+      m.writeSprite(8, 0, Eye02);
+      m.writeSprite(0, 0, Eye01);
+
+      l.writeSprite(0, 0, noseLeft);
+      m.writeSprite(48, 0, noseRight);
+
+      l.writeSprite(32, 0, icon01L);
+      l.writeSprite(24, 0, icon02L);
+      l.writeSprite(16, 0, icon03L);
+      l.writeSprite(8, 0, icon04L);
+      m.writeSprite(40, 0, icon04);
+      m.writeSprite(32, 0, icon03);
+      m.writeSprite(24, 0, icon02);
+      m.writeSprite(16, 0, icon01);
+
+      blink(blinkTime);
+    }
+    break;
+  case 2:
+    if (current == "Surprise")
+    {
+      m.writeSprite(104, 0, Spooked1L);
+      m.writeSprite(96, 0, Spooked2L);
+      m.writeSprite(8, 0, Spooked1);
+      m.writeSprite(0, 0, Spooked2);
+
+      m.writeSprite(56, 0, noseLeft);
+      m.writeSprite(48, 0, noseRight);
+
+      m.writeSprite(88, 0, icon01L);
+      m.writeSprite(80, 0, icon02L);
+      m.writeSprite(72, 0, icon03L);
+      m.writeSprite(64, 0, icon04L);
+      m.writeSprite(40, 0, icon04);
+      m.writeSprite(32, 0, icon03);
+      m.writeSprite(24, 0, icon02);
+      m.writeSprite(16, 0, icon01);
+
+      blink(blinkTime);
+    }
+    break;
+  case 3:
+    if (current == "Sad")
+    {
+      //program Sad
+    }
+    break;
+  case 4:
+    //Serial.println("Test");
+    if (current == "Angry")
+    {
+      m.writeSprite(104, 0, Eye01L);
+      m.writeSprite(96, 0, Eye02L);
+      m.writeSprite(8, 0, Eye02);
+      m.writeSprite(0, 0, Eye01);
+
+      m.writeSprite(56, 0, noseLeft);
+      m.writeSprite(48, 0, noseRight);
+
+      //Serial.println("Test2");
+      m.writeSprite(64, 0, Glitch044L);
+      m.writeSprite(72, 0, Glitch033L);
+      m.writeSprite(80, 0, Glitch022L);
+      m.writeSprite(88, 0, Glitch011L);
+      m.writeSprite(16, 0, Glitch011);
+      m.writeSprite(24, 0, Glitch022);
+      m.writeSprite(32, 0, Glitch033);
+      m.writeSprite(40, 0, Glitch044);
+      delay(75);
+      counter++;
+      if (counter == 17)
       {
-        //Probando si es porque no puede tener tantos displays el arduino en un mismo puerto, por lo que hay el display l y el display m
-        l.writeSprite(40, 0, Eye01L);
-        l.writeSprite(48, 0, Eye02L);
-        m.writeSprite(8, 0, Eye02);
-        m.writeSprite(0, 0, Eye01);
-
-        l.writeSprite(0, 0, noseLeft);
-        m.writeSprite(48, 0, noseRight);
-
-        l.writeSprite(32, 0, icon01L);
-        l.writeSprite(24, 0, icon02L);
-        l.writeSprite(16, 0, icon03L);
-        l.writeSprite(8, 0, icon04L);
-        m.writeSprite(40, 0, icon04);
-        m.writeSprite(32, 0, icon03);
-        m.writeSprite(24, 0, icon02);
-        m.writeSprite(16, 0, icon01);
-
-        blink(blinkTime);
-      }
-      break;
-    case 2:
-      if (current == "Surprise")
-      {
-        m.writeSprite(104, 0, Spooked1L);
-        m.writeSprite(96, 0, Spooked2L);
-        m.writeSprite(8, 0, Spooked1);
-        m.writeSprite(0, 0, Spooked2);
-
-        m.writeSprite(56, 0, noseLeft);
-        m.writeSprite(48, 0, noseRight);
-
+        //Serial.println("Test3");
         m.writeSprite(88, 0, icon01L);
         m.writeSprite(80, 0, icon02L);
         m.writeSprite(72, 0, icon03L);
@@ -693,78 +740,35 @@ void expresion()
         m.writeSprite(32, 0, icon03);
         m.writeSprite(24, 0, icon02);
         m.writeSprite(16, 0, icon01);
-
-        blink(blinkTime);
-      }
-      break;
-    case 3:
-      if (current == "Sad")
-      {
-        //program Sad
-      }
-      break;
-    case 4:
-      //Serial.println("Test");
-      if (current == "Angry")
-      {
-        m.writeSprite(104, 0, Eye01L);
-        m.writeSprite(96, 0, Eye02L);
-        m.writeSprite(8, 0, Eye02);
-        m.writeSprite(0, 0, Eye01);
-
-        m.writeSprite(56, 0, noseLeft);
-        m.writeSprite(48, 0, noseRight);
-
-        //Serial.println("Test2");
-        m.writeSprite(64, 0, Glitch044L);
-        m.writeSprite(72, 0, Glitch033L);
-        m.writeSprite(80, 0, Glitch022L);
-        m.writeSprite(88, 0, Glitch011L);
-        m.writeSprite(16, 0, Glitch011);
-        m.writeSprite(24, 0, Glitch022);
-        m.writeSprite(32, 0, Glitch033);
-        m.writeSprite(40, 0, Glitch044);
-        delay(75);
+        delay(200);
         counter++;
-        if (counter == 17)
-        {
-          //Serial.println("Test3");
-          m.writeSprite(88, 0, icon01L);
-          m.writeSprite(80, 0, icon02L);
-          m.writeSprite(72, 0, icon03L);
-          m.writeSprite(64, 0, icon04L);
-          m.writeSprite(40, 0, icon04);
-          m.writeSprite(32, 0, icon03);
-          m.writeSprite(24, 0, icon02);
-          m.writeSprite(16, 0, icon01);
-          delay(200);
-          counter++;
-        }
-        if (counter >= 19)
-        {
-          //Serial.println("Test4");
-          m.writeSprite(64, 0, Glitch04L);
-          m.writeSprite(72, 0, Glitch03L);
-          m.writeSprite(80, 0, Glitch02L);
-          m.writeSprite(88, 0, Glitch01L);
-          m.writeSprite(16, 0, Glitch01);
-          m.writeSprite(24, 0, Glitch02);
-          m.writeSprite(32, 0, Glitch03);
-          m.writeSprite(40, 0, Glitch04);
-          delay(75);
-          counter = 0;
-        }
-
-        blink(blinkTime);
       }
-      break;
-      case 5:
-        if (current == "Overheat"){
-            m.writeSprite(104, 0, EyeOH02L);
-            m.writeSprite(96, 0, EyeOH01L);
-            m.writeSprite(8, 0, EyeOH02);
-            m.writeSprite(0, 0, EyeOH01);
-        }
+      if (counter >= 19)
+      {
+        //Serial.println("Test4");
+        m.writeSprite(64, 0, Glitch04L);
+        m.writeSprite(72, 0, Glitch03L);
+        m.writeSprite(80, 0, Glitch02L);
+        m.writeSprite(88, 0, Glitch01L);
+        m.writeSprite(16, 0, Glitch01);
+        m.writeSprite(24, 0, Glitch02);
+        m.writeSprite(32, 0, Glitch03);
+        m.writeSprite(40, 0, Glitch04);
+        delay(75);
+        counter = 0;
+      }
+
+      blink(blinkTime);
+    }
+    break;
+  case 5:
+    if (current == "Overheat")
+    {
+      m.writeSprite(104, 0, EyeOH02L);
+      m.writeSprite(96, 0, EyeOH01L);
+      m.writeSprite(8, 0, EyeOH02);
+      m.writeSprite(0, 0, EyeOH01);
+    }
   }
   counter2++;
 }
@@ -796,7 +800,7 @@ void blink(int c)
     }
     column2L = 48;
     column3L = 31;
-    column4L = 39; 
+    column4L = 39;
     column1 = 8;
     column2 = 16;
     column3 = -1;
