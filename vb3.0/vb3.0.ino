@@ -804,3 +804,5 @@ void blink(int c)
     counter2 = 0;
   }
 }
+
+//test
