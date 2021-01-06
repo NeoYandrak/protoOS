@@ -657,8 +657,8 @@ void expresion()
     if (current == "Idle")
     {
       //Probando si es porque no puede tener tantos displays el arduino en un mismo puerto, por lo que hay el display l y el display m
-      l.writeSprite(40, 0, Eye01L);
-      l.writeSprite(48, 0, Eye02L);
+      l.writeSprite(48, 0, Eye01L);
+      l.writeSprite(40, 0, Eye02L);
       m.writeSprite(8, 0, Eye02);
       m.writeSprite(0, 0, Eye01);
 
@@ -798,8 +798,9 @@ void blink(int c)
       delay(15);
       counter2++;
     }
+    column1L = 40;
     column2L = 48;
-    column3L = 31;
+    column3L = 47;
     column4L = 39;
     column1 = 8;
     column2 = 16;
